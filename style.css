@@ -2,6 +2,7 @@
 	display: block;
 }
 
-#test,#bug{
+#test,#bug,#offcha,#note,#question,#nextTime{
 	display:none;
 }
+
