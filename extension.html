@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Test sessions tracker</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script type="text/javascript" src="jquery-2.2.1.js"></script>
+    <script type="text/javascript" src="popup.js"></script>
+</head>
+<body>
+	<div id="title" class="containerone">
+	<h1>Test sessions tracker</h1>
+		<div id="generalInfo" class="container">
+
+			<div class="area">
+				<p>Area</p><input type="text" placeholder=""></input>
+			</div>
+
+			<div class="charter">
+				<p>Charter</p><input type="text" placeholder=""></input>
+			</div>
+
+			<div class="tester">
+				<p>Tester</p><input type="text" placeholder=""></input>
+			</div>
+
+			<div class="environment">
+				<p>Environment</p><input type="text" placeholder=""></input>
+			</div>
+			
+			<br>
+			<div class="submit">
+				<button id="startSessionButton" >Start Session!</button>
+			</div>
+
+		</div>
+
+	</div>
+
+		<div id="session" class="container">
+			<div class="main">
+				<div id="setup" class="first current">
+					<p <i class="fa fa-cog">Setup</p><input type="text" placeholder=""></input>
+				</div>
+				<div id="test" class="text_field">
+					<p <i class="fa fa-check">Test</p><input type="text" placeholder=""></input>
+				</div>
+				<div id="bug" class="last">
+					<p <i class="fa fa-bug">Bug</p><input type="text" placeholder=""></input>
+				</div>
+				<div class="offcha_field">
+					<p <i class="fa fa-external-link"> Offcharter</p><input type="text" placeholder=""></input>
+				</div>
+				<div class="note_field">
+					<p <i class="fa fa-pencil"> Note</p><input type="text" placeholder=""></input>
+				</div>
+				<div class="question_field">
+					<p <i class="fa fa-question"> Question</p><input type="text" placeholder=""></input>
+				</div>
+				<div class="l">
+					<p <i class="fa fa-forward">Next Time</p><input type="text" placeholder=""></input>
+				</div>
+			</div>
+			<button id="prev" disabled="disabled">Prev</button>
+			<button id="next">Next </button>
+		</div>
+
+	<footer>
+
+	</footer>
+
+
+
+
+</body>
+</html>
