@@ -16,3 +16,18 @@ ul
 {
     list-style-type: none;
 }
+
+#setup-icon,#test-icon, #bug-icon, #off-charter-icon, #note-icon, #question-icon, #next-time-icon
+{
+	display: inline;
+}
+
+.circle-icon{
+	background: gray;
+	  padding:8px;
+    border-radius: 50%;
+}
+
+#setup:active ~ #setup-icon{
+	color:red;
+}
