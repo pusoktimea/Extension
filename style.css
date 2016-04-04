@@ -23,9 +23,13 @@ ul
     list-style-type: none;
 }
 
-#setup-icon,#test-icon, #bug-icon, #off-charter-icon, #note-icon, #question-icon, #next-time-icon
-{
-	display: inline;
+#icon_list li {
+	display: inline-block;
+	width: 23px;
+	height: 23px;
+	text-align: center;
+	line-height: 23px;
+	border-radius: 50%;
 }
 
 input[type=text]
@@ -41,17 +45,57 @@ width: 600px;
 
 }
 
-.circle-icon{
-	background: transparent;
-	padding:8px;
-    border-radius: 50%;
+#session .field_list li {
+	display: none;
 }
 
-#setup:active ~ #setup-icon{
-	color:red;
+#session.setup li.setup_field {
+	display: block;
+}
+#session.test li.test_field {
+	display: block;
+}
+#session.bug li.bug_field {
+	display: block;
+}
+#session.offcharter li.offcharter_field {
+	display: block;
+}
+#session.note li.note_field {
+	display: block;
+}
+#session.question li.question_field {
+	display: block;
+}
+#session.nexttime li.nexttime_field {
+	display: block;
 }
 
-
- /*#input-setup:focus::-webkit-input-placeholder {
-    color: red;
-}*/
+#session.setup li.setup_icon {
+	color: #fff;
+	background-color: #000;
+}
+#session.test li.test_icon {
+	color: #fff;
+	background-color: #000;
+}
+#session.bug li.bug_icon {
+	color: #fff;
+	background-color: #000;
+}
+#session.offcharter li.offcharter_icon {
+	color: #fff;
+	background-color: #000;
+}
+#session.note li.note_icon {
+	color: #fff;
+	background-color: #000;
+}
+#session.question li.question_icon {
+	color: #fff;
+	background-color: #000;
+}
+#session.nexttime li.nexttime_icon {
+	color: #fff;
+	background-color: #000;
+}

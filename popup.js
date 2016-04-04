@@ -23,34 +23,35 @@
    //var first-icon=$("#icons-list li:first-child");
    //var last-icon=$("#icons-list li:last-child");
 
-   first_element.addClass("current").fadeIn();
+   //first_element.addClass("current").fadeIn();
   // first-icon.addClass("current-icon").css("background","red");
 
   $('.target').keydown(function(e){
+    if (e.keyCode !== 39 && e.keyCode !== 37) {
+      return;
+    }
+
+
+    var current_div=$("#textboxes li:visible");
+    var current_function=current_div.attr("data-function");
+
     if (e.keyCode == 39) { 
-    var current_div=$("#textboxes li.current");
-    current_div.removeClass("current").fadeOut();
-
-    if(!current_div.is("#textboxes li:last-child")){
-      current_div=current_div.next('li').addClass("current").fadeIn().find('input').val('').focus();
-    
-    }else{
-      current_div=first_element.addClass("current").fadeIn().find('input').val('').focus();
+      current_div = current_div.next();
+      if(current_div.length === 0) {
+        current_div = first_element;
+      }
+    } else if(e.keyCode == 37){
+      current_div = current_div.prev();
+      if(current_div.length === 0) {
+        current_div = last_element;
+      }
     }
-  }
 
-   else if(e.keyCode == 37){
-  var current_div=$("#textboxes li.current");
-    current_div.removeClass("current").fadeOut();
+    var next_function=current_div.attr("data-function");
+    $("#session").addClass(next_function).removeClass(current_function);
 
-    if(!current_div.is("#textboxes li:first-child")){
-      current_div=current_div.prev('li').addClass("current").fadeIn().find('input').val('').focus();
-      
-    }else{
-      current_div=last_element.addClass("current").fadeIn().find('input').val('').focus();
-    }
-       }
-   });
+    current_div.find('input').val('').focus();
+  });
 //navigation ends
 
 //icons
