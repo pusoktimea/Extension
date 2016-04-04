@@ -8,8 +8,14 @@
 
 body{
 	
-	width: 300px;
+	
 	background-position: 30% 20%;
+}
+
+#session{
+
+	width: 700px;
+	height: 80px;
 }
 
 ul
@@ -22,12 +28,30 @@ ul
 	display: inline;
 }
 
+input[type=text]
+{
+height: 30px;
+/*width: 300px;*/
+}
+
+.target
+{
+height: 30px;
+width: 600px;
+
+}
+
 .circle-icon{
-	background: gray;
-	  padding:8px;
+	background: transparent;
+	padding:8px;
     border-radius: 50%;
 }
 
 #setup:active ~ #setup-icon{
 	color:red;
 }
+
+
+ /*#input-setup:focus::-webkit-input-placeholder {
+    color: red;
+}*/
