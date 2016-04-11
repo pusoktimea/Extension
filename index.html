@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Test sessions tracker</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script type="text/javascript" src="jquery-2.2.1.js"></script>
+    <script type="text/javascript" src="popup.js"></script> 
+</head>
+<body>
+	
+	<div id="title" class="containerone">
+	<h1>Test sessions tracker</h1>
+		<div id="generalInfo" class="container">
+
+			<div class="area">
+				<p>Area</p><input id="areaInput" type="text" placeholder=""></input>
+			</div>
+
+			<div class="charter">
+				<p>Charter</p><input id="charterInput" type="text" placeholder=""></input>
+			</div>
+
+			<div class="tester">
+				<p>Tester</p><input id="testerInput" type="text" placeholder=""></input>
+			</div>
+
+			<div class="environment">
+				<p>Environment</p><input id="environmentInput" type="text" placeholder=""></input>
+			</div>
+			
+			<br>
+			<div class="submit">
+				<button id="startSessionButton" >Start Session!</button>
+			</div>
+
+		</div>
+
+	</div>
+
+		<div id="session" class="container setup">
+			<form action="http://localhost:80/docs" method="POST">
+			<ul class="field_list" id="textboxes">
+				<li class="setup_field" data-function="setup">
+					<input type="text" id="input-setup" class="target" placeholder="Setup" autofocus="autofocus"></input>
+				</li>
+				<li class="test_field" data-function="test">
+					<input type="text" id="input-test" class="target"  placeholder="Test" autofocus="autofocus" ></input>
+				</li>
+				<li class="bug_field" data-function="bug">
+					 <input type="text" class="target" placeholder="Bug"></input>
+				</li>
+				<li class="offcharter_field" data-function="offcharter">
+					 <input type="text" class="target" placeholder="Offcharter"></input>
+				</li>
+				<li class="note_field" data-function="note" >
+					<input type="text" class="target" placeholder="Note"></input>
+				</li>
+				<li class="question_field" data-function="question">
+					<input type="text" class="target" placeholder="Question"></input>
+				</li>
+				<li class="nexttime_field" data-function="nexttime">
+					<input type="text" id="last" class="target"  placeholder="Next Time"></input>
+				</li>
+				
+				</ul>
+				</form>
+				<ul id="icon_list">
+							
+					<li class="setup_icon" ><i class="fa fa-cog circle-icon"></i></li>
+					<li class="test_icon" ><i class="fa fa-check"></i></li>
+					<li class="bug_icon" ><i class="fa fa-bug"></i></li>
+					<li class="offcharter_icon" ><i class="fa fa-external-link"></i></li>
+					<li class="note_icon" ><i class="fa fa-pencil"></i></li>
+					<li class="question_icon" ><i class="fa fa-question"></i></li>
+					<li class="nexttime_icon"><i class="fa fa-forward"></i></li>
+				
+				</ul>
+				
+			
+			</div>
+		</div>
+
+
+
+	<footer>
+
+	</footer>
+
+
+
+
+</body>
+</html>

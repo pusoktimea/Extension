@@ -1,20 +1,42 @@
   //when the extension is loaded, this function will hide the content of the session elements,
   //which has to be displayed just after click on the "Start Session" button. 
-  $(document ).ready(function(){
-    $('#session').hide();
+var remoteURL = "http://127.0.0.1:3000";
+
+$(function() {
+  $('#generalInfo').hide();
+  $('#session').hide();
+
+  $.get(remoteURL + "/newsession", function(data) {
+      $('#session').show();
+  }).fail(function() {
+      $('#generalInfo').show();
+  });
 
       
   //when "Start Session" button is clicked the function will show the session elements
   //and hide the div with the informations about area charter tester and environment 
 
-    $(function() {
-      $('#startSessionButton').click(function(){
-        $('#session').show();
-        $('#generalInfo').hide();
-        
-      });
-    });
+  $('#startSessionButton').click(function(){
+    $('#generalInfo').hide(); 
 
+    $.ajax(remoteURL + "/newsession", {
+      data: JSON.stringify({
+          area: $('#areaInput').val(),
+          environment: $('#environmentInput').val(),
+          charter: $('#charterInput').val(),
+          tester: $('#testerInput').val(),
+      }),
+      contentType: "application/json",
+      type: "POST",
+      success: function() {
+          $('#session').show();
+      }
+    }).fail(function() {
+      alert("Error on sending data");
+      //div pt a deriderctiona 
+    });
+  });
+    
 
     //navigate between textboxes after starting the session,using up-down arrows
    var first_element=$("#textboxes li:first-child");
@@ -53,6 +75,16 @@
     current_div.find('input').val('').focus();
   });
 //navigation ends
+
+
+//submit by pressing enter the input fields
+
+$("input").keypress(function(event) {
+    if (event.which == 13) {
+        event.preventDefault();
+        $("#target").submit();
+    }
+});
 
 //icons
 // $(function(){
