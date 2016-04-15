@@ -1,5 +1,5 @@
   //when the extension is loaded, this function will hide the content of the session elements,
-  //which has to be displayed just after click on the "Start Session" button. 
+  //which has to be displayed just after click on the "Start Session" button.
 var remoteURL = "http://127.0.0.1:3000";
 
 $(function() {
@@ -12,12 +12,11 @@ $(function() {
       $('#generalInfo').show();
   });
 
-      
   //when "Start Session" button is clicked the function will show the session elements
-  //and hide the div with the informations about area charter tester and environment 
+  //and hide the div with the informations about area charter tester and environment
 
   $('#startSessionButton').click(function(){
-    $('#generalInfo').hide(); 
+    $('#generalInfo').hide();
 
     $.ajax(remoteURL + "/newsession", {
       data: JSON.stringify({
@@ -25,6 +24,8 @@ $(function() {
           environment: $('#environmentInput').val(),
           charter: $('#charterInput').val(),
           tester: $('#testerInput').val(),
+          duration: $('input[name="duration"]:checked', '#sessionDuration').val(),
+
       }),
       contentType: "application/json",
       type: "POST",
@@ -33,20 +34,37 @@ $(function() {
       }
     }).fail(function() {
       alert("Error on sending data");
-      //div pt a deriderctiona 
+      //div pt a deriderctiona
     });
   });
-    
+
 
     //navigate between textboxes after starting the session,using up-down arrows
    var first_element=$("#textboxes li:first-child");
    var last_element=$("#textboxes li:last-child");
 
-   //var first-icon=$("#icons-list li:first-child");
-   //var last-icon=$("#icons-list li:last-child");
+   $('.target').keydown(function (e) {
+     console.log(e.keyCode);
 
-   //first_element.addClass("current").fadeIn();
-  // first-icon.addClass("current-icon").css("background","red");
+     if(e.keyCode == 13){
+     //  $( "#target" ).submit();
+
+       $.ajax(remoteURL + "/newitem",{
+         data: JSON.stringify({
+           type: $(this).attr("placeholder"),
+           description: $(this).val(),
+         }),
+         contentType:"application/json",
+         type: "POST",
+         success: function() {
+          $('.target').val('').focus();
+         }
+       }).fail(function() {
+         alert("Error on sending data");
+         //div pt a deriderctiona
+       });
+     }
+   });
 
   $('.target').keydown(function(e){
     if (e.keyCode !== 39 && e.keyCode !== 37) {
@@ -57,7 +75,7 @@ $(function() {
     var current_div=$("#textboxes li:visible");
     var current_function=current_div.attr("data-function");
 
-    if (e.keyCode == 39) { 
+    if (e.keyCode == 39) {
       current_div = current_div.next();
       if(current_div.length === 0) {
         current_div = first_element;
@@ -76,15 +94,22 @@ $(function() {
   });
 //navigation ends
 
+  $('#stopSessionButton').click(function(){
+    $('#generalInfo').show();
+    $('#session').hide();
 
+     $.ajax(remoteURL + "/updatesession",{
+           type: 'POST',
+
+       });
+
+
+
+
+});
 //submit by pressing enter the input fields
 
-$("input").keypress(function(event) {
-    if (event.which == 13) {
-        event.preventDefault();
-        $("#target").submit();
-    }
-});
+
 
 //icons
 // $(function(){
@@ -111,7 +136,6 @@ $("input").keypress(function(event) {
 // };
 
 // progress(60, 60, $('#progressBar'));
-    
+
 
 //   });
-  
